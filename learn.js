@@ -245,10 +245,7 @@
 //   }
 // }
 
-// const returnMap = list.map((item) => {
-//   // console.log(item)
-//   return convertToObject(item)
-// })
+// const returnMap = list.map((item) => convertToObject(item))
 
 // console.log(returnMap)
 
@@ -282,15 +279,65 @@
 // console.log(list)
 // console.log(listNew)
 
-const data = {
-  name: "Arief Yusron",
-  age: 17,
+// const data = {
+//   name: "Arief Yusron",
+//   age: 17,
+// }
+
+// const newData = {
+//   ...data,
+//   address: "Bandung"
+// }
+
+// console.log(data)
+// console.log(newData)
+
+// const hargaParkir = () => {
+//   return 10
+// }
+
+// console.log(hargaParkir())
+
+
+let todoList = []
+console.log('init', todoList)
+
+const addTodoList = (desc) => {
+  todoList = [
+    {
+      desc,
+      status: 'todo'
+    },
+    ...todoList
+  ]
 }
 
-const newData = {
-  ...data,
-  address: "Bandung"
+const editTodoList = (index, data) => {
+  todoList[index] = {
+    ...todoList[index],
+    ...data,
+  }
 }
 
-console.log(data)
-console.log(newData)
+const deleteTodoList = (indexParam) => {
+  todoList = todoList.filter((_, index) => index !== indexParam)
+}
+
+addTodoList("service motor")
+console.log('after add', todoList)
+addTodoList("cuci motor")
+console.log('after add', todoList)
+addTodoList("jual motor")
+console.log('after add', todoList)
+
+
+
+editTodoList(1, { status: 'done' })
+editTodoList(0, { status: 'done' })
+console.log('after edit', todoList)
+
+deleteTodoList(1)
+console.log('after delete', todoList)
+
+
+console.log('result', todoList)
