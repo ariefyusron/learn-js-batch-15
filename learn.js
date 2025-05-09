@@ -299,45 +299,63 @@
 // console.log(hargaParkir())
 
 
-let todoList = []
-console.log('init', todoList)
+// let todoList = []
+// console.log('init', todoList)
 
-const addTodoList = (desc) => {
-  todoList = [
-    {
-      desc,
-      status: 'todo'
-    },
-    ...todoList
-  ]
-}
+// const addTodoList = (desc) => {
+//   todoList = [
+//     {
+//       desc,
+//       status: 'todo'
+//     },
+//     ...todoList
+//   ]
+// }
 
-const editTodoList = (index, data) => {
-  todoList[index] = {
-    ...todoList[index],
-    ...data,
-  }
-}
+// const editTodoList = (index, data) => {
+//   todoList[index] = {
+//     ...todoList[index],
+//     ...data,
+//   }
+// }
 
-const deleteTodoList = (indexParam) => {
-  todoList = todoList.filter((_, index) => index !== indexParam)
-}
+// const deleteTodoList = (indexParam) => {
+//   todoList = todoList.filter((_, index) => index !== indexParam)
+// }
 
-addTodoList("service motor")
-console.log('after add', todoList)
-addTodoList("cuci motor")
-console.log('after add', todoList)
-addTodoList("jual motor")
-console.log('after add', todoList)
-
-
-
-editTodoList(1, { status: 'done' })
-editTodoList(0, { status: 'done' })
-console.log('after edit', todoList)
-
-deleteTodoList(1)
-console.log('after delete', todoList)
+// addTodoList("service motor")
+// console.log('after add', todoList)
+// addTodoList("cuci motor")
+// console.log('after add', todoList)
+// addTodoList("jual motor")
+// console.log('after add', todoList)
 
 
-console.log('result', todoList)
+
+// editTodoList(1, { status: 'done' })
+// editTodoList(0, { status: 'done' })
+// console.log('after edit', todoList)
+
+// deleteTodoList(1)
+// console.log('after delete', todoList)
+
+
+// console.log('result', todoList)
+
+const h1 = document.getElementById("judul")
+
+h1.textContent = 'Belajar DOM'
+h1.className = 'title'
+
+const container = document.getElementById('container')
+
+const desc = document.createElement('p')
+desc.textContent = "ini paragraf container"
+
+container.appendChild(desc)
+
+const buttonClick = document.getElementById('button-click')
+
+buttonClick.addEventListener("click", () => {
+  h1.style.color = 'blue'
+})
