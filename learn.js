@@ -299,63 +299,85 @@
 // console.log(hargaParkir())
 
 
-// let todoList = []
-// console.log('init', todoList)
+let todoList = []
 
-// const addTodoList = (desc) => {
-//   todoList = [
-//     {
-//       desc,
-//       status: 'todo'
-//     },
-//     ...todoList
-//   ]
-// }
+const addTodoList = (desc) => {
+  todoList = [
+    {
+      desc,
+      status: 'todo'
+    },
+    ...todoList
+  ]
 
-// const editTodoList = (index, data) => {
-//   todoList[index] = {
-//     ...todoList[index],
-//     ...data,
-//   }
-// }
+  const emptyText = document.getElementById('empty-text')
+  if(emptyText !== null) {
+    emptyText.remove()
+  }
 
-// const deleteTodoList = (indexParam) => {
-//   todoList = todoList.filter((_, index) => index !== indexParam)
-// }
+  const container = document.getElementById('container')
+  const ul = document.createElement('ul')
+  ul.id = 'todo-list'
 
-// addTodoList("service motor")
-// console.log('after add', todoList)
-// addTodoList("cuci motor")
-// console.log('after add', todoList)
-// addTodoList("jual motor")
-// console.log('after add', todoList)
+  const wrapTodoList = document.getElementById('todo-list')
+  if(wrapTodoList !== null) {
+    wrapTodoList.remove()
+  }
+  
+  todoList.forEach((item) => {
+    const li = document.createElement('li')
+    li.textContent = `${item.desc} - ${item.status}`
+    ul.appendChild(li)
+  })
 
+  container.appendChild(ul)
+}
 
+const editTodoList = (index, data) => {
+  todoList[index] = {
+    ...todoList[index],
+    ...data,
+  }
+}
 
-// editTodoList(1, { status: 'done' })
-// editTodoList(0, { status: 'done' })
-// console.log('after edit', todoList)
-
-// deleteTodoList(1)
-// console.log('after delete', todoList)
-
-
-// console.log('result', todoList)
-
-const h1 = document.getElementById("judul")
-
-h1.textContent = 'Belajar DOM'
-h1.className = 'title'
+const deleteTodoList = (indexParam) => {
+  todoList = todoList.filter((_, index) => index !== indexParam)
+}
 
 const container = document.getElementById('container')
 
-const desc = document.createElement('p')
-desc.textContent = "ini paragraf container"
+if(todoList.length === 0) {
+  const desc = document.createElement('p')
+  desc.id = "empty-text"
+  desc.textContent = "Tida ada data"
 
-container.appendChild(desc)
+  container.appendChild(desc)
+}
 
-const buttonClick = document.getElementById('button-click')
-
-buttonClick.addEventListener("click", () => {
-  h1.style.color = 'blue'
+document.getElementById('button-add').addEventListener('click', () => {
+  addTodoList('service motor')
 })
+
+
+
+// const h1 = document.getElementById("judul")
+
+// h1.textContent = 'Belajar DOM'
+// h1.className = 'title'
+
+// const container = document.getElementById('container')
+
+// const desc = document.createElement('p')
+// desc.textContent = "ini paragraf container"
+
+// container.appendChild(desc)
+
+// const buttonClick = document.getElementById('button-click')
+
+// buttonClick.addEventListener("click", () => {
+//   if(h1.style.color === 'blue') {
+//     h1.style.color = ''
+//   } else {
+//     h1.style.color = 'blue'
+//   }
+// })
