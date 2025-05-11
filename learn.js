@@ -381,3 +381,37 @@ document.getElementById('button-add').addEventListener('click', () => {
 //     h1.style.color = 'blue'
 //   }
 // })
+
+const form = document.getElementById('form-name')
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  let firstName = e.target.firstName.value
+  let lastName = e.target.lastName.value
+  console.log('ini submit', {
+    firstName,
+    lastName
+  })
+  
+  form.reset()
+})
+
+let data = []
+
+const submitData = (newData, getAllData) => {
+  data = [newData, ...data]
+
+  getAllData?.()
+}
+
+const tampilkanLog = () => {
+  console.log('setelah add')
+}
+
+submitData('arief')
+submitData('yusron', tampilkanLog())
+submitData('jamal', () => {
+  console.log('tambah')
+  console.log('tambah')
+})
