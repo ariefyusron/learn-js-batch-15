@@ -387,31 +387,36 @@ const form = document.getElementById('form-name')
 form.addEventListener('submit', (e) => {
   e.preventDefault()
 
-  let firstName = e.target.firstName.value
-  let lastName = e.target.lastName.value
+  const firstName = e.target.firstName.value
+  const lastName = e.target.lastName.value
+  const tnc = e.target.tnc.checked
+  const gender = e.target.gender.value
+
   console.log('ini submit', {
     firstName,
-    lastName
+    lastName,
+    tnc,
+    gender
   })
   
   form.reset()
 })
 
-let data = []
+// let data = []
 
-const submitData = (newData, getAllData) => {
-  data = [newData, ...data]
+// const submitData = (newData, getAllData) => {
+//   data = [newData, ...data]
 
-  getAllData?.()
-}
+//   getAllData?.()
+// }
 
-const tampilkanLog = () => {
-  console.log('setelah add')
-}
+// const tampilkanLog = () => {
+//   console.log('setelah add')
+// }
 
-submitData('arief')
-submitData('yusron', tampilkanLog())
-submitData('jamal', () => {
-  console.log('tambah')
-  console.log('tambah')
-})
+// submitData('arief')
+// submitData('yusron', tampilkanLog())
+// submitData('jamal', () => {
+//   console.log('tambah')
+//   console.log('tambah')
+// })
