@@ -299,64 +299,64 @@
 // console.log(hargaParkir())
 
 
-let todoList = []
+// let todoList = []
 
-const addTodoList = (desc) => {
-  todoList = [
-    {
-      desc,
-      status: 'todo'
-    },
-    ...todoList
-  ]
+// const addTodoList = (desc) => {
+//   todoList = [
+//     {
+//       desc,
+//       status: 'todo'
+//     },
+//     ...todoList
+//   ]
 
-  const emptyText = document.getElementById('empty-text')
-  if(emptyText !== null) {
-    emptyText.remove()
-  }
+//   const emptyText = document.getElementById('empty-text')
+//   if(emptyText !== null) {
+//     emptyText.remove()
+//   }
 
-  const container = document.getElementById('container')
-  const ul = document.createElement('ul')
-  ul.id = 'todo-list'
+//   const container = document.getElementById('container')
+//   const ul = document.createElement('ul')
+//   ul.id = 'todo-list'
 
-  const wrapTodoList = document.getElementById('todo-list')
-  if(wrapTodoList !== null) {
-    wrapTodoList.remove()
-  }
+//   const wrapTodoList = document.getElementById('todo-list')
+//   if(wrapTodoList !== null) {
+//     wrapTodoList.remove()
+//   }
   
-  todoList.forEach((item) => {
-    const li = document.createElement('li')
-    li.textContent = `${item.desc} - ${item.status}`
-    ul.appendChild(li)
-  })
+//   todoList.forEach((item) => {
+//     const li = document.createElement('li')
+//     li.textContent = `${item.desc} - ${item.status}`
+//     ul.appendChild(li)
+//   })
 
-  container.appendChild(ul)
-}
+//   container.appendChild(ul)
+// }
 
-const editTodoList = (index, data) => {
-  todoList[index] = {
-    ...todoList[index],
-    ...data,
-  }
-}
+// const editTodoList = (index, data) => {
+//   todoList[index] = {
+//     ...todoList[index],
+//     ...data,
+//   }
+// }
 
-const deleteTodoList = (indexParam) => {
-  todoList = todoList.filter((_, index) => index !== indexParam)
-}
+// const deleteTodoList = (indexParam) => {
+//   todoList = todoList.filter((_, index) => index !== indexParam)
+// }
 
-const container = document.getElementById('container')
+// const container = document.getElementById('container')
 
-if(todoList.length === 0) {
-  const desc = document.createElement('p')
-  desc.id = "empty-text"
-  desc.textContent = "Tida ada data"
+// if(todoList.length === 0) {
+//   const desc = document.createElement('p')
+//   desc.id = "empty-text"
+//   desc.textContent = "Tida ada data"
 
-  container.appendChild(desc)
-}
+//   container.appendChild(desc)
+// }
 
-document.getElementById('button-add').addEventListener('click', () => {
-  addTodoList('service motor')
-})
+// document.getElementById('button-add').addEventListener('click', () => {
+//   addTodoList('service motor')
+// })
 
 
 
@@ -392,15 +392,26 @@ form.addEventListener('submit', (e) => {
   const tnc = e.target.tnc.checked
   const gender = e.target.gender.value
 
-  console.log('ini submit', {
-    firstName,
-    lastName,
-    tnc,
-    gender
-  })
+  localStorage.setItem('name', `${firstName} ${lastName}`)
+
+  const container = document.getElementById('container')
+  
+  const name = document.createElement('p')
+  name.textContent = `${firstName} ${lastName}`
+  container.appendChild(name)
   
   form.reset()
 })
+
+const name = localStorage.getItem('name')
+
+if(name !== null) {
+  const container = document.getElementById('container')
+  
+  const nameElement = document.createElement('p')
+  nameElement.textContent = name
+  container.appendChild(nameElement)
+}
 
 // let data = []
 
