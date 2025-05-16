@@ -525,18 +525,19 @@ const title = 'Belajar React'
 const Header = ({ title, subTitle = 'Ini nilai default' }) => {
   return (
     <div id="header">
-      <h1 className="title">{title}</h1>
+      <h1 className="title">{`${title}-${subTitle}`}</h1>
       <p>{subTitle}</p>
     </div>
   )
 }
 
-const Body = ({ children }) => {
+const Body = ({ children, renderBody }) => {
   return (
     <div id="body">
       <p>ini paragraf</p>
       <p>ini paragraf 2</p>
       {children}
+      {renderBody}
     </div>
   )
 }
@@ -549,6 +550,10 @@ const Footer = () => {
   )
 }
 
+const handleClickButton = () => {
+  console.log('name')
+}
+
 root.render(
   <>
     <Header title="Ini Header Pertama" subTitle="Ini adalah subTitle 1" />
@@ -559,5 +564,7 @@ root.render(
       </div>
     </Body>
     <Footer />
+
+    <button onClick={handleClickButton}>Klik</button>
   </>
 )
