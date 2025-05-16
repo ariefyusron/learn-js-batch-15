@@ -6,30 +6,12 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Todo List App</h1>
+  <div id="app"></div>
 
-  <button id="button-add">tambah</button>
-
-  <br />
-  <br />
-
-  <form id="form-name">
-    <input name="firstName" type="text" placeholder="nama depan">
-    <br />
-    <input name="lastName" type="text" placeholder="nama belakang">
-    <br />
-    <input name="tnc" type="checkbox">
-    <br />
-    <input name="gender" value="male" type="radio">
-    <input name="gender" value="female" type="radio">
-    <button type="submit">show</button>
-  </form>
-
-  <div id="container">
-    <div id="loading">Loading...</div>
-  </div>
-
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="learn.js"></script>
+  <script type="text/jsx" src="learn.js"></script>
 </body>
 </html>
