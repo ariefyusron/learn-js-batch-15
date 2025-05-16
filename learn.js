@@ -522,15 +522,42 @@ const root = ReactDOM.createRoot(app)
 
 const title = 'Belajar React'
 
+const Header = ({ title, subTitle = 'Ini nilai default' }) => {
+  return (
+    <div id="header">
+      <h1 className="title">{title}</h1>
+      <p>{subTitle}</p>
+    </div>
+  )
+}
+
+const Body = ({ children }) => {
+  return (
+    <div id="body">
+      <p>ini paragraf</p>
+      <p>ini paragraf 2</p>
+      {children}
+    </div>
+  )
+}
+
+const Footer = () => {
+  return (
+    <div id="footer">
+      <label>ini footer</label>
+    </div>
+  )
+}
+
 root.render(
   <>
-    <div className="container">
-      <h1>{title}</h1>
-      <p>Ini paragraf</p>
-    </div>
-    <div style={{ backgroundColor: 'red' }}>
-      <h1>Belajar React</h1>
-      <p>Ini paragraf</p>
-    </div>
+    <Header title="Ini Header Pertama" subTitle="Ini adalah subTitle 1" />
+    <Header title="Ini Header Kedua" />
+    <Body>
+      <div>
+        <h1>Ini child</h1>
+      </div>
+    </Body>
+    <Footer />
   </>
 )
